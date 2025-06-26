@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# test.sh
+
+# 将你的验证码图片文件 (如 my_captcha.png) 转换成 Base64 字符串
+# 在 Linux 或 macOS: B64_STRING=$(base64 -w 0 my_captcha.png)
+# 然后将得到的字符串粘贴到下面。
+# 为方便演示，这里使用一个占位符。
+IMAGE_B64="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"
+
+# 检查占位符是否被替换
+if [[ "$IMAGE_B64" == "在此处粘贴你的图像Base64编码" ]]; then
+    echo "错误: 请编辑 test.sh 文件，将真实的图像 Base64 字符串赋值给 IMAGE_B64 变量。"
+    exit 1
+fi
+
+echo "正在向 http://127.0.0.1:8000/recognize 发送请求..."
+echo ""
+
+# 使用 curl 发送 POST 请求
+# -X POST: 指定请求方法为 POST
+# -H "Content-Type: application/json": 设置请求头，告诉服务器我们发送的是 JSON
+# -d '{"img": "'"$IMAGE_B64"'"}' : 设置请求体。
+curl -X POST \
+     -H "Content-Type: application/json" \
+     -d '{"img": "'"$IMAGE_B64"'"}' \
+     http://127.0.0.1:8000/recognize
+
+echo ""
+echo ""
+echo "请求完成。"
