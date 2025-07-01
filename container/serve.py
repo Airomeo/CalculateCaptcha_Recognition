@@ -91,6 +91,10 @@ async def handle_recognize(request: web.Request):
             status=500  # Internal Server Error
         )
 
+async def handle_home(request: web.Request):
+    s = open('index.html', "r")
+    return web.Response(text=s.read(), content_type='text/html')
+
 # --- 主程序入口 ---
 if __name__ == "__main__":
     # 创建 aiohttp 应用实例
@@ -101,6 +105,7 @@ if __name__ == "__main__":
 
     # 添加路由，将 POST /recognize 请求映射到 handle_recognize 句柄
     app.router.add_post("/recognize", handle_recognize)
+    app.router.add_get("/", handle_home)
 
     # 启动应用服务器
     print("启动 aiohttp 服务器")
